@@ -1,0 +1,16 @@
+version: "3"
+volumes:
+  scrap:
+
+services:
+  app:
+    build: .
+    command: ["yarn", "start"] 
+    env_file: .env
+    volumes:
+      - ./scrap:/home/app/scrap_data
+
+  test:
+    build: .
+    command: ["yarn", "test"] 
+    env_file: .env
